@@ -6,6 +6,12 @@
       <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-2.13.0" />
       <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-4.6.1" />
       <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/smart_auth-1.0.8" />
+      <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_web-0.12.0" />
+      <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-6.1.0" />
+      <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_android-6.1.14" />
+      <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in_ios-5.6.2" />
+      <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore_web-3.5.1" />
+      <root url="file://E:/flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-4.7.1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

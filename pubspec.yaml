@@ -41,7 +41,10 @@ dependencies:
   pinput: ^2.2.21
   firebase_auth: ^4.6.1
   velocity_x: ^3.6.0
-  email_validator: ^2.1.17
+  owesome_validator: ^0.0.6
+  google_sign_in: ^6.1.0
+  cloud_firestore: ^4.7.1
+
 
 
 dev_dependencies:
