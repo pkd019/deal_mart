@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">678220999268-249t37lsegggl1v8de6ph7tihksvp53j.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">678220999268</string>
+    <string name="google_api_key" translatable="false">AIzaSyCNgSULFrxEiFgEUB30ygOQUABAPXV-Py8</string>
+    <string name="google_app_id" translatable="false">1:678220999268:android:9aa45cebc44ec9c6840d71</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCNgSULFrxEiFgEUB30ygOQUABAPXV-Py8</string>
+    <string name="google_storage_bucket" translatable="false">deal-mart-86ebd.appspot.com</string>
+    <string name="project_id" translatable="false">deal-mart-86ebd</string>
+</resources>

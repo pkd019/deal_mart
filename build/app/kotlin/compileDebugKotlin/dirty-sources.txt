@@ -1,0 +1,1 @@
+C:\Users\User\StudioProjects\deal_mart\android\app\src\main\kotlin\com\example\deal_mart\MainActivity.kt
