@@ -7,17 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-
-//login page
+///login page
 class loginpage extends StatefulWidget {
   const loginpage({Key? key}) : super(key: key);
 
   @override
   State<loginpage> createState() => _loginpageState();
 }
+/// AL CONTROLLERR NEEDED FOR TEXTFORMFILLED AND VERIFICATION*******************************************8
 
 final controller = Get.put(Signupcontroller());
-
+final otpController = Get.put(OTPController());
 final _formkey = GlobalKey<FormState>();
 final _auth = FirebaseAuth.instance;
 final userdata = GetStorage();
@@ -25,7 +25,7 @@ final userdata = GetStorage();
 class _loginpageState extends State<loginpage> {
   @override
   Widget build(BuildContext context) {
-    userdata.write('islogged',false);
+    userdata.write('islogged', false);
     return Scaffold(
         appBar: AppBar(title: Text('login page')),
         body: SingleChildScrollView(
@@ -82,7 +82,7 @@ class _loginpageState extends State<loginpage> {
 
                                   if (user != null) {
                                     Get.off(bottomNav());
-                                    userdata.write('islogged',true);
+                                    userdata.write('islogged', true);
                                   }
                                 },
                                 child: Text('log in'),
@@ -102,9 +102,8 @@ class _loginpageState extends State<loginpage> {
                                 onPressed: () {
                                   googleSignIn();
 
-                                    Get.off(bottomNav());
-                                    userdata.write('islogged',true);
-
+                                  Get.off(bottomNav());
+                                  userdata.write('islogged', true);
                                 },
                                 label: Text("Sign in with google"),
                               ),

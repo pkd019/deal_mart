@@ -8,6 +8,7 @@ class Signupcontroller extends GetxController {
   static Signupcontroller get instance => Get.find();
 
   //this controller get data from user
+
   final email = TextEditingController();
   final name = TextEditingController();
   final phone = TextEditingController();

@@ -39,6 +39,9 @@ class OTPscreen extends StatelessWidget {
           const SizedBox(height: 40.0),
           const Text(" support@codingwitht.com", textAlign: TextAlign.center),
           const SizedBox(height: 20.0),
+
+          /// FOR ENTER OTP************************************************
+
           Pinput(
             mainAxisAlignment: MainAxisAlignment.center,
             length: 6,
@@ -50,6 +53,9 @@ class OTPscreen extends StatelessWidget {
             },
           ),
           SizedBox(height: 20),
+
+          /// SUBMIT BUTTTON*****************************************
+
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(onPressed: () {

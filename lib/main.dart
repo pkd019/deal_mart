@@ -1,6 +1,7 @@
 import 'package:deal_mart/Home/bottom.dart';
 import 'package:deal_mart/pages/login%20page.dart';
 import 'package:deal_mart/signup/auth.dart';
+import 'package:deal_mart/signup/controller.dart';
 import 'package:deal_mart/signup/signuppage.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -35,6 +36,7 @@ class _MyAppState extends State<MyApp> {
       checkiflogged();
     });
   }
+  var otpController = Get.lazyPut(() => OTPController());
 
   @override
   Widget build(BuildContext context) {

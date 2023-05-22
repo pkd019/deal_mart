@@ -18,6 +18,10 @@ class signup extends StatefulWidget {
 class _signupState extends State<signup> {
   @override
   Widget build(BuildContext context) {
+
+
+    ///******************************AL CONTROLLERR NEEDED FOR TEXTFORMFILLED AND VERIFICATION**************************************8
+
     final controller = Get.put(Signupcontroller());
 
     final _formkey = GlobalKey<FormState>();
@@ -33,6 +37,9 @@ class _signupState extends State<signup> {
               child: Column(mainAxisSize: MainAxisSize.max,
                 children: [
                   SizedBox(height: 40,),
+
+                  ///*************************************** NAME ************************************************************88888
+
                   TextFormField(
 
                     controller: controller.name,
@@ -47,6 +54,9 @@ class _signupState extends State<signup> {
                   SizedBox(
                     height: 20,
                   ),
+
+                  ///******************************** PHONE NUMBER *****************************************
+
                   TextFormField(
                     controller: controller.phone,
                     decoration: InputDecoration(labelText: 'phone number',
@@ -58,6 +68,9 @@ class _signupState extends State<signup> {
                   SizedBox(
                     height: 20,
                   ),
+
+                  ///******************************** EMAIL iD ***********************************************
+
                   TextFormField(validator: (value) {},
                     controller: controller.email,
                     keyboardType: TextInputType.emailAddress,
@@ -70,6 +83,9 @@ class _signupState extends State<signup> {
                   SizedBox(
                     height: 20,
                   ),
+
+                  /// ***********************************PASSWORD *******************************************
+
                   TextFormField(
                     controller: controller.password,
                     decoration: InputDecoration(labelText: 'password',
@@ -82,6 +98,8 @@ class _signupState extends State<signup> {
                     height: 100,
                   ),
 
+                  /// **********************************PHONE VERIFICATION********************************************************
+
                   ElevatedButton(onPressed: () {
                     if (_formkey.currentState!.validate()){
                      // Signupcontroller.instance.register(controller.email.text.trim(),controller.password.text.trim());
@@ -93,9 +111,14 @@ class _signupState extends State<signup> {
                     child: Text('Sign in '),
                     style: ButtonStyle(),),
 
+                  ///******************************** GOOGLE SIGN IN ***********************************************
+
                   ElevatedButton(onPressed: () {googleSignIn();Get.off(bottomNav());},
                     child: Text('google Sign in '),
                     style: ButtonStyle(),),
+
+                  /// ****************************LOGIN PAGE ********************************************************
+
                   ElevatedButton(onPressed: (){Get.to(loginpage());}, child: Text('log in'))
 
 
