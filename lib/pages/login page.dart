@@ -1,44 +1,67 @@
+import 'package:deal_mart/Home/bottom.dart';
+import 'package:deal_mart/signup/auth.dart';
+import 'package:deal_mart/signup/controller.dart';
 import 'package:deal_mart/signup/signuppage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+
 
 //login page
-class loginpage extends StatelessWidget {
+class loginpage extends StatefulWidget {
   const loginpage({Key? key}) : super(key: key);
 
   @override
+  State<loginpage> createState() => _loginpageState();
+}
+
+final controller = Get.put(Signupcontroller());
+
+final _formkey = GlobalKey<FormState>();
+final _auth = FirebaseAuth.instance;
+final userdata = GetStorage();
+
+class _loginpageState extends State<loginpage> {
+  @override
   Widget build(BuildContext context) {
+    userdata.write('islogged',false);
     return Scaffold(
         appBar: AppBar(title: Text('login page')),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(
               child: Form(
+                  key: _formkey,
                   child: Container(
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextFormField(
+                              controller: controller.email,
                               decoration: const InputDecoration(
-                                  prefixIcon:
-                                      Icon(Icons.person_outline_outlined),
+                                  prefixIcon: Icon(Icons.mail),
                                   labelText: 'Email',
                                   hintText: 'Email',
                                   border: OutlineInputBorder()),
                             ),
                             const SizedBox(height: 20),
                             TextFormField(
+                              controller: controller.password,
                               decoration: const InputDecoration(
-                                prefixIcon: Icon(Icons.fingerprint),
+                                prefixIcon: Icon(Icons.security),
                                 labelText: 'Password',
                                 hintText: 'Password',
                                 border: OutlineInputBorder(),
                                 suffixIcon: IconButton(
                                   onPressed: null,
-                                  icon: Icon(Icons.remove_red_eye_sharp),
+                                  icon: Icon(
+                                    Icons.remove_red_eye_sharp,
+                                  ),
                                 ),
                               ),
+                              obscureText: true,
                             ),
                             const SizedBox(height: 20),
                             Align(
@@ -50,7 +73,18 @@ class loginpage extends StatelessWidget {
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () async {
+                                  final user =
+                                      await _auth.signInWithEmailAndPassword(
+                                          email: controller.email.text.trim(),
+                                          password:
+                                              controller.password.text.trim());
+
+                                  if (user != null) {
+                                    Get.off(bottomNav());
+                                    userdata.write('islogged',true);
+                                  }
+                                },
                                 child: Text('log in'),
                               ),
                             ),
@@ -65,7 +99,13 @@ class loginpage extends StatelessWidget {
                               width: double.infinity,
                               child: OutlinedButton.icon(
                                 icon: Icon(Icons.browse_gallery),
-                                onPressed: () {},
+                                onPressed: () {
+                                  googleSignIn();
+
+                                    Get.off(bottomNav());
+                                    userdata.write('islogged',true);
+
+                                },
                                 label: Text("Sign in with google"),
                               ),
                             ),

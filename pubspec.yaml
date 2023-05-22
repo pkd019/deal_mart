@@ -44,6 +44,10 @@ dependencies:
   owesome_validator: ^0.0.6
   google_sign_in: ^6.1.0
   cloud_firestore: ^4.7.1
+  google_fonts: ^4.0.4
+  firebase_phone_auth_handler: ^1.0.8
+  get_storage: ^2.1.1
+
 
 
 

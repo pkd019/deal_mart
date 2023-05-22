@@ -74,6 +74,7 @@ MERGED from C:\Users\User\StudioProjects\deal_mart\android\app\src\main\AndroidM
 MERGED from [:firebase_auth] C:\Users\User\StudioProjects\deal_mart\build\firebase_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:cloud_firestore] C:\Users\User\StudioProjects\deal_mart\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:firebase_core] C:\Users\User\StudioProjects\deal_mart\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:path_provider_android] C:\Users\User\StudioProjects\deal_mart\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:smart_auth] C:\Users\User\StudioProjects\deal_mart\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:google_sign_in_android] C:\Users\User\StudioProjects\deal_mart\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.multidex:multidex:2.0.1] C:\Users\User\.gradle\caches\transforms-3\142c48dd6fdac7423ec268918bac43e5\transformed\multidex-2.0.1\AndroidManifest.xml:17:1-22:12
@@ -160,6 +161,8 @@ MERGED from [:cloud_firestore] C:\Users\User\StudioProjects\deal_mart\build\clou
 MERGED from [:cloud_firestore] C:\Users\User\StudioProjects\deal_mart\build\cloud_firestore\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\User\StudioProjects\deal_mart\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:firebase_core] C:\Users\User\StudioProjects\deal_mart\build\firebase_core\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] C:\Users\User\StudioProjects\deal_mart\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:path_provider_android] C:\Users\User\StudioProjects\deal_mart\build\path_provider_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:smart_auth] C:\Users\User\StudioProjects\deal_mart\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:smart_auth] C:\Users\User\StudioProjects\deal_mart\build\smart_auth\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:google_sign_in_android] C:\Users\User\StudioProjects\deal_mart\build\google_sign_in_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41

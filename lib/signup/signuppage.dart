@@ -1,5 +1,7 @@
 
+import 'package:deal_mart/Home/bottom.dart';
 import 'package:deal_mart/pages/login%20page.dart';
+import 'package:deal_mart/pages/otp..dart';
 import 'package:deal_mart/signup/auth.dart';
 import 'package:get/get.dart';
 
@@ -19,6 +21,7 @@ class _signupState extends State<signup> {
     final controller = Get.put(Signupcontroller());
 
     final _formkey = GlobalKey<FormState>();
+    String countryCode ="+91";
 
     return Scaffold(
       appBar: AppBar(title: Text('Sign Up'),),
@@ -81,14 +84,16 @@ class _signupState extends State<signup> {
 
                   ElevatedButton(onPressed: () {
                     if (_formkey.currentState!.validate()){
-                      Signupcontroller.instance.register(controller.email.text.trim(),controller.password.text.trim());
-                    } {
+                     // Signupcontroller.instance.register(controller.email.text.trim(),controller.password.text.trim());
+                       Signupcontroller.instance.phoneVerification(controller.phone.text.trim());
+                      Get.to((OTPscreen()));
+                    }
 
-                    }},
+                    },
                     child: Text('Sign in '),
                     style: ButtonStyle(),),
 
-                  ElevatedButton(onPressed: () {googleSignIn();},
+                  ElevatedButton(onPressed: () {googleSignIn();Get.off(bottomNav());},
                     child: Text('google Sign in '),
                     style: ButtonStyle(),),
                   ElevatedButton(onPressed: (){Get.to(loginpage());}, child: Text('log in'))
