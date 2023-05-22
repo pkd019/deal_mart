@@ -14,9 +14,10 @@ import 'Home/home.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   Firebase.initializeApp().then((value) => Get.put(authrepo()));
   await GetStorage.init();
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -32,21 +33,20 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     final userdata = GetStorage();
     userdata.writeIfNull("islogged", false);
-    Future.delayed(Duration.zero,() async{
+    Future.delayed(Duration.zero, () async {
       checkiflogged();
     });
   }
-  var otpController = Get.lazyPut(() => OTPController());
 
+  var otpController = Get.lazyPut(() => OTPController());
   @override
   Widget build(BuildContext context) {
-
     return GetMaterialApp(
       theme: ThemeData(
           colorScheme:
               ColorScheme.light().copyWith(primary: Colors.lightBlueAccent)),
-      home: userdata.read("islogged")? bottomNav() : loginpage(),);
-
+      home: userdata.read("islogged") ? bottomNav() : loginpage(),
+    );
   }
 }
 

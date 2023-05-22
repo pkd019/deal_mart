@@ -2,6 +2,7 @@ import 'package:deal_mart/Home/bottom.dart';
 import 'package:deal_mart/signup/auth.dart';
 import 'package:deal_mart/signup/controller.dart';
 import 'package:deal_mart/signup/signuppage.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,13 +15,13 @@ class loginpage extends StatefulWidget {
   @override
   State<loginpage> createState() => _loginpageState();
 }
-/// AL CONTROLLERR NEEDED FOR TEXTFORMFILLED AND VERIFICATION*******************************************8
 
 final controller = Get.put(Signupcontroller());
 final otpController = Get.put(OTPController());
-final _formkey = GlobalKey<FormState>();
+final _signkey = GlobalKey<FormState>();
 final _auth = FirebaseAuth.instance;
 final userdata = GetStorage();
+bool passToggle = false;
 
 class _loginpageState extends State<loginpage> {
   @override
@@ -32,37 +33,65 @@ class _loginpageState extends State<loginpage> {
           scrollDirection: Axis.vertical,
           child: Container(
               child: Form(
-                  key: _formkey,
+                  key: _signkey,
                   child: Container(
                       padding: EdgeInsets.symmetric(vertical: 20),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             TextFormField(
+                              validator: (value) {
+                                if (!EmailValidator.validate(value!)) {
+                                  return "Please enter a valid email";
+                                }
+                              },
                               controller: controller.email,
-                              decoration: const InputDecoration(
+                              keyboardType: TextInputType.emailAddress,
+                              decoration: InputDecoration(
+                                  labelText: 'mail id ',
                                   prefixIcon: Icon(Icons.mail),
-                                  labelText: 'Email',
-                                  hintText: 'Email',
-                                  border: OutlineInputBorder()),
+                                  border: OutlineInputBorder(),
+                                  filled: true,
+                                  fillColor: Colors.blue.shade100),
                             ),
                             const SizedBox(height: 20),
+
+                            ///****************************** password **********************
+
                             TextFormField(
-                              controller: controller.password,
-                              decoration: const InputDecoration(
-                                prefixIcon: Icon(Icons.security),
-                                labelText: 'Password',
-                                hintText: 'Password',
-                                border: OutlineInputBorder(),
-                                suffixIcon: IconButton(
-                                  onPressed: null,
-                                  icon: Icon(
-                                    Icons.remove_red_eye_sharp,
-                                  ),
+                                controller: controller.password,
+                                decoration: InputDecoration(
+                                  labelText: 'password',
+                                  prefixIcon: Icon(Icons.lock),
+                                  border: OutlineInputBorder(),
+                                  filled: true,
+                                  fillColor: Colors.blue.shade100,
+                                  suffixIcon: InkWell(
+                                      onTap: () {
+                                        setState(() {
+                                          passToggle = !passToggle;
+                                        });
+                                      },
+                                      child: Icon(passToggle
+                                          ? Icons.visibility_off
+                                          : Icons.visibility)),
                                 ),
-                              ),
-                              obscureText: true,
-                            ),
+                                obscureText: passToggle,
+
+                                /// ***************************************passord validator*****************************
+
+                                validator: (value) {
+                                  if (value!.length < 8) {
+                                    return "make a strong password";
+                                  }
+                                  if (RegExp(
+                                          r'^(?=.?[A-Z])(?=.?[a-z])(?=.?[0-9])(?=.?[!@#$&*~]).{8,}$')
+                                      .hasMatch(value)) {
+                                    return "make a strong password";
+                                  }
+                                  return null;
+                                }),
+
                             const SizedBox(height: 20),
                             Align(
                               alignment: Alignment.centerRight,
@@ -74,15 +103,17 @@ class _loginpageState extends State<loginpage> {
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () async {
-                                  final user =
-                                      await _auth.signInWithEmailAndPassword(
-                                          email: controller.email.text.trim(),
-                                          password:
-                                              controller.password.text.trim());
+                                  if (_signkey.currentState!.validate()) {
+                                    final user =
+                                        await _auth.signInWithEmailAndPassword(
+                                            email: controller.email.text.trim(),
+                                            password: controller.password.text
+                                                .trim());
 
-                                  if (user != null) {
-                                    Get.off(bottomNav());
-                                    userdata.write('islogged', true);
+                                    if (user != null) {
+                                      Get.off(bottomNav());
+                                      userdata.write('islogged', true);
+                                    }
                                   }
                                 },
                                 child: Text('log in'),
