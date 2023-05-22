@@ -104,15 +104,26 @@ class _loginpageState extends State<loginpage> {
                               child: ElevatedButton(
                                 onPressed: () async {
                                   if (_signkey.currentState!.validate()) {
-                                    final user =
-                                        await _auth.signInWithEmailAndPassword(
-                                            email: controller.email.text.trim(),
-                                            password: controller.password.text
-                                                .trim());
+                                    try {
+                                      final user = await _auth
+                                          .signInWithEmailAndPassword(
+                                              email:
+                                                  controller.email.text.trim(),
+                                              password: controller.password.text
+                                                  .trim());
 
-                                    if (user != null) {
-                                      Get.off(bottomNav());
-                                      userdata.write('islogged', true);
+                                      if (user != null) {
+                                        Get.off(bottomNav());
+                                        userdata.write('islogged', true);
+                                      }
+                                    } catch (e) {
+                                      String errorMessage = e.toString();
+                                      Get.snackbar(
+                                        'Sign-up Failed',
+                                        errorMessage.substring(
+                                            errorMessage.indexOf(']') + 1),
+                                        snackPosition: SnackPosition.BOTTOM,
+                                      );
                                     }
                                   }
                                 },

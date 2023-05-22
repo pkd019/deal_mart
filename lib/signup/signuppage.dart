@@ -25,6 +25,11 @@ class _signupState extends State<signup> {
 
     final _formkey = GlobalKey<FormState>();
     bool passToggle = true;
+    void _togglePasswordView() {
+      setState(() {
+        passToggle = !passToggle;
+      });
+    }
 
     return Scaffold(
         appBar: AppBar(
@@ -115,15 +120,14 @@ class _signupState extends State<signup> {
                         border: OutlineInputBorder(),
                         filled: true,
                         fillColor: Colors.blue.shade100,
-                        suffixIcon: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                passToggle = !passToggle;
-                              });
-                            },
-                            icon: Icon(passToggle
+                        suffixIcon: InkWell(
+                          onTap: _togglePasswordView,
+                          child: Icon(
+                            passToggle
                                 ? Icons.visibility
-                                : Icons.visibility_off)),
+                                : Icons.visibility_off,
+                          ),
+                        ),
                       ),
                       obscureText: passToggle,
 
